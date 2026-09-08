@@ -1,0 +1,11 @@
+{
+  "name": "한국사능력검정시험 심화 학습",
+  "short_name": "한국사 심화",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>한국사능력검정시험 심화 학습</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<style>
+:root{
+  --bg:#0f172a; --bg2:#111c33; --card:#16213c; --card2:#1c2a4a;
+  --line:#24314f; --tx:#e6edf7; --tx2:#a9b8d4; --tx3:#6b7c9e;
+  --ac:#7aa2ff; --ac2:#3b5fd0; --ok:#34d399; --no:#f87171; --wn:#fbbf24;
+  --r:12px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-size:15px;line-height:1.62;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",
+  "Noto Sans KR",system-ui,sans-serif;
+  padding-bottom:calc(66px + env(safe-area-inset-bottom));overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.35}
+
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.95);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top)}
+header .in{max-width:840px;margin:0 auto;display:flex;align-items:center;gap:10px;
+  padding:11px 14px}
+header h1{font-size:16px;font-weight:700;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+header .ic{width:34px;height:34px;flex:none;display:flex;align-items:center;
+  justify-content:center;border:1px solid var(--line);background:var(--card);
+  border-radius:9px;font-size:15px;cursor:pointer}
+
+/* nav */
+nav{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(15,23,42,.97);
+  backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+nav .in{max-width:840px;margin:0 auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 0 8px;
+  color:var(--tx3);font-size:11px;font-weight:600;min-width:0}
+nav a.on{color:var(--ac)}
+nav a i{font-style:normal;font-size:18px;line-height:1}
+
+main{max-width:840px;margin:0 auto;padding:16px 14px 28px}
+
+/* building blocks */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px;margin-bottom:12px}
+.card.tap{cursor:pointer}
+.card.tap:active{background:var(--card2)}
+.row{display:flex;align-items:center;gap:10px;min-width:0}
+.row.wrap{flex-wrap:wrap}
+.sp{flex:1;min-width:0}
+.mut{color:var(--tx2)}
+.dim{color:var(--tx3)}
+.sm{font-size:13px}
+.xs{font-size:12px}
+.b{font-weight:700}
+.mb0{margin-bottom:0}
+.mt{margin-top:12px}
+.ctr{text-align:center}
+
+.h2{font-size:14px;font-weight:700;color:var(--tx2);margin:20px 0 9px;
+  display:flex;align-items:center;gap:8px}
+.h2:first-child{margin-top:0}
+
+.grid{display:grid;gap:10px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gauto{grid-template-columns:repeat(auto-fill,minmax(min(150px,100%),1fr))}
+@media(max-width:420px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:12px 10px;text-align:center;min-width:0}
+.kpi b{display:block;font-size:21px;font-weight:800;letter-spacing:-.5px}
+.kpi span{display:block;font-size:11px;color:var(--tx3);margin-top:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:10px 14px;border:1px solid var(--line);background:var(--card2);
+  border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
+.btn:active{opacity:.75}
+.btn.pri{background:var(--ac2);border-color:var(--ac2);color:#fff}
+.btn.wide{width:100%}
+.btn.sm{padding:7px 11px;font-size:13px}
+.btn[disabled]{opacity:.4;cursor:default}
+
+.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;
+  border:1px solid var(--line);background:var(--card);border-radius:999px;
+  font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--ac2);border-color:var(--ac2);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.scroller{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.scroller::-webkit-scrollbar{display:none}
+
+.tag{display:inline-block;padding:2px 7px;border-radius:6px;font-size:11px;
+  font-weight:700;background:var(--card2);color:var(--tx2);white-space:nowrap}
+.tag.i3{background:#3b1d2a;color:#fca5a5}
+.tag.i2{background:#3a2f14;color:#fcd34d}
+.tag.i1{background:#1e293b;color:#94a3b8}
+.tag.seed{background:#2b2140;color:#c4b5fd}
+.tag.ok{background:#14332a;color:#6ee7b7}
+.tag.no{background:#3b1d1d;color:#fca5a5}
+
+.bar{height:6px;background:var(--card2);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--ac);border-radius:99px}
+
+input[type=text],input[type=search],textarea,select{width:100%;padding:10px 12px;
+  background:var(--bg2);border:1px solid var(--line);border-radius:10px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--ac2)}
+textarea{resize:vertical;min-height:70px;line-height:1.55}
+label.ck{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13.5px}
+label.ck input{width:17px;height:17px;accent-color:var(--ac)}
+
+/* content blocks */
+.body p{margin:0 0 8px}
+.body ul{margin:0 0 8px;padding-left:19px}
+.body li{margin:0 0 4px}
+.body table{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 10px}
+.body th,.body td{border:1px solid var(--line);padding:6px 8px;text-align:left;
+  vertical-align:top}
+.body th{background:var(--card2);font-weight:700;white-space:nowrap}
+.tblwrap{overflow-x:auto;margin:0 0 10px}
+.note{border-left:3px solid var(--wn);background:#2a2413;border-radius:0 8px 8px 0;
+  padding:9px 12px;margin:0 0 10px;font-size:13.5px}
+.steps{margin:0 0 10px;padding:0;list-style:none}
+.steps li{display:flex;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps b{flex:none;min-width:62px;color:var(--ac);font-size:13px}
+.quote{border-left:3px solid var(--ac2);background:var(--bg2);padding:9px 12px;
+  border-radius:0 8px 8px 0;margin:0 0 10px;font-size:13.5px;color:var(--tx2)}
+mark{background:#4a3c12;color:#fde68a;border-radius:3px;padding:0 2px}
+
+/* quiz */
+.opt{display:flex;gap:10px;width:100%;text-align:left;padding:11px 12px;
+  border:1px solid var(--line);background:var(--card);border-radius:10px;
+  margin-bottom:8px;cursor:pointer;min-width:0}
+.opt:active{background:var(--card2)}
+.opt .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--card2);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.opt .t{flex:1;min-width:0;word-break:break-word}
+.opt.ok{border-color:var(--ok);background:#12271f}
+.opt.ok .n{background:var(--ok);color:#04231a}
+.opt.no{border-color:var(--no);background:#2a1414}
+.opt.no .n{background:var(--no);color:#2a0b0b}
+.opt.dis{cursor:default}
+.fb{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:12px;
+  background:var(--bg2)}
+.pgs{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.pgs .bar{flex:1}
+
+.empty{text-align:center;color:var(--tx3);padding:34px 12px;font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(80px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(14px);z-index:99;
+  background:#0b1327;border:1px solid var(--line);color:var(--tx);
+  padding:10px 16px;border-radius:99px;font-size:13.5px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.22s;max-width:88vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <h1 id="hTitle">한국사 심화</h1>
+  <div class="ic" onclick="go('#/settings')">⚙</div>
+</div></header>
+<main id="app">불러오는 중…</main>
+<nav><div class="in" id="navIn"></div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   1. 저장소
+   ============================================================ */
+const KEY='hist_v1';
+/* 매번 새 객체를 만든다. 상수로 두면 Object.assign 이 중첩 객체의 참조를 복사해
+   S.weak 가 곧 기본값 객체가 되고, 초기화해도 이전 점수가 되살아난다. */
+function DEF(){return {answers:{},weak:{},read:{},notes:{},conNotes:{},unknown:[],
+           ai:{sets:[],qs:[],ans:{},notes:{}},ver:1}}
+function load(){try{return Object.assign(DEF(),JSON.parse(localStorage.getItem(KEY)||'{}'))}
+  catch(e){return DEF()}}
+let S=load(),_sv=0;
+function save(){clearTimeout(_sv);_sv=setTimeout(()=>{
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('저장 공간이 부족합니다')}},120)}
+let _ts=0;
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');
+  clearTimeout(_ts);_ts=setTimeout(()=>t.classList.remove('on'),1900)}
+
+/* ============================================================
+   2. 데이터 로딩
+   ============================================================ */
+const D={idx:null,con:[],conBy:{},quiz:[],qById:{},lecBy:{},eraBy:{},quizOn:false};
+const j=u=>fetch(u,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(u);return r.json()});
+const app=()=>document.getElementById('app');
+
+function boot(){
+  j('data/index.json').then(idx=>{
+    D.idx=idx;
+    idx.eras.forEach(e=>D.eraBy[e.no]=e);
+    idx.lectures.forEach(l=>D.lecBy[l.no]=l);
+    return Promise.all(idx.eras.map(e=>j('data/concepts-'+e.no+'.json').catch(()=>({items:[]}))));
+  }).then(list=>{
+    list.forEach(f=>(f.items||[]).forEach(c=>{D.con.push(c);D.conBy[c.no]=c}));
+    D.con.sort((a,b)=>a.no-b.no);
+    window.addEventListener('hashchange',route);
+    route();
+    if(location.protocol!=='file:'&&'serviceWorker'in navigator)
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    (window.requestIdleCallback||setTimeout)(()=>needQuiz(),1);
+  }).catch(bootFail);
+}
+function bootFail(e){
+  app().innerHTML='<div class="card"><h3>데이터를 불러오지 못했습니다</h3>'+
+    '<p class="mut sm mt">'+(location.protocol==='file:'
+      ? 'index.html을 더블클릭해서 열면 브라우저 보안 정책 때문에 <code>data/*.json</code>을 읽을 수 없습니다.<br>'+
+        '폴더에서 아래를 실행한 뒤 <b>http://localhost:8000</b> 으로 여세요.<br>'+
+        '<code>python -m http.server 8000</code>'
+      : esc(String(e&&e.message||e)))+'</p></div>';
+}
+let _qp=null;
+function needQuiz(){
+  if(D.quizOn)return Promise.resolve();
+  if(_qp)return _qp;
+  _qp=Promise.all(D.idx.eras.map(e=>j('data/quiz-'+e.no+'.json').catch(()=>({questions:[]})))).then(list=>{
+    list.forEach(f=>(f.questions||[]).forEach(q=>{D.quiz.push(q);D.qById[q.id]=q}));
+    D.quizOn=true;
+  });
+  return _qp;
+}
+/* 개념 ↔ 문항 역방향 링크는 런타임에 만든다 (데이터 중복 저장을 피함) */
+function qOfCon(no){return D.quiz.filter(q=>(q.refs||[]).indexOf(no)>=0)}
+
+/* ============================================================
+   3. 렌더 유틸
+   ============================================================ */
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,
+  c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function hl(s,q){ // 검색어 강조
+  if(!q||typeof q!=='string')return esc(s);
+  const i=String(s).toLowerCase().indexOf(q.toLowerCase());
+  if(i<0)return esc(s);
+  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length));
+}
+function block(b){
+  if(!b)return'';
+  switch(b.type){
+    case 'text': return b.bullet?'<ul><li>'+esc(b.text)+'</li></ul>':'<p>'+esc(b.text)+'</p>';
+    case 'list': return '<ul>'+(b.items||[]).map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+    case 'table': return '<div class="tblwrap"><table>'+
+      (b.head?'<tr>'+b.head.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr>':'')+
+      (b.rows||[]).map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+
+      '</table></div>';
+    case 'steps': return '<ul class="steps">'+(b.items||[]).map(x=>
+      '<li><b>'+esc(x.t)+'</b><span class="sp">'+esc(x.d)+'</span></li>').join('')+'</ul>';
+    case 'note': return '<div class="note">'+(b.lines||[]).map(esc).join('<br>')+'</div>';
+    case 'quote': return '<div class="quote">'+(b.lines||[]).map(esc).join('<br>')+'</div>';
+    default: return '<p>'+esc(b.text||'')+'</p>';
+  }
+}
+function bodyHtml(a){return '<div class="body">'+(a||[]).map(block).join('')+'</div>'}
+const TYPES=['인물','사건','제도','문화','사료','흐름'];
+const IMP={3:'최빈출',2:'중요',1:'참고'};
+function impTag(i){return '<span class="tag i'+i+'">'+IMP[i]+'</span>'}
+function pct(a,b){return b?Math.round(a/b*100):0}
+
+/* ============================================================
+   4. 채점 + 취약 개념 점수  (my-study 가중치 모델 이식)
+   ------------------------------------------------------------
+   +3 내가 고른 오답의 refs  → 이 개념을 '옳다'고 착각했다
+   +2 정답 선택지의 refs     → 이 개념을 몰랐다  (부정형 문항은 제외)
+   +2 문항 주제 refs[0]      → 이 주제가 약하다
+   -1 맞힌 문항의 refs       → 회복 (0 미만으로 내려가지 않는다)
+   ============================================================ */
+const NEG=/아닌|않은|않는|틀린|잘못|거리가 먼|옳지/;
+function isNeg(q){return NEG.test((q.stem||[]).map(b=>b.text||'').join(' '))}
+function bump(no,d){if(!D.conBy[no])return;
+  S.weak[no]=Math.max(0,(S.weak[no]||0)+d)}
+function grade(q,sel){
+  const ok=sel===q.answer;
+  S.answers[q.id]={sel:sel,ok:ok,t:Date.now(),era:q.era,lec:q.lec};
+  if(!ok){
+    ((q.options[sel-1]||{}).refs||[]).forEach(n=>bump(n,3));
+    if(!isNeg(q))((q.options[q.answer-1]||{}).refs||[]).forEach(n=>bump(n,2));
+    (q.refs||[]).slice(0,1).forEach(n=>bump(n,2));
+  } else (q.refs||[]).forEach(n=>bump(n,-1));
+  const i=S.unknown.indexOf(q.id); if(i>=0)S.unknown.splice(i,1);
+  save(); return ok;
+}
+function skipQ(q){
+  if(S.unknown.indexOf(q.id)<0)S.unknown.push(q.id);
+  (q.refs||[]).forEach(n=>bump(n,2)); save();
+}
+function weakList(min){
+  return Object.keys(S.weak).map(Number).filter(n=>(S.weak[n]||0)>=(min||1)&&D.conBy[n])
+    .sort((a,b)=>S.weak[b]-S.weak[a]);
+}
+function stat(){
+  const ks=Object.keys(S.answers), ok=ks.filter(k=>S.answers[k].ok).length;
+  return {n:ks.length,ok:ok,rate:pct(ok,ks.length),read:Object.keys(S.read).length};
+}
+function eraStat(e){
+  const qs=D.quiz.filter(q=>q.era===e), a=qs.filter(q=>S.answers[q.id]);
+  const cs=D.con.filter(c=>c.era===e), r=cs.filter(c=>S.read[c.no]);
+  return {q:qs.length,solved:a.length,ok:a.filter(q=>S.answers[q.id].ok).length,
+          con:cs.length,read:r.length};
+}
+/* 헷갈린 짝 — "고른 개념 ↔ 정답 개념" */
+function confusions(){
+  const m={};
+  Object.keys(S.answers).forEach(id=>{
+    const a=S.answers[id],q=D.qById[id];
+    if(!q||a.ok)return;
+    const picked=((q.options[a.sel-1]||{}).refs||[])[0];
+    const right=((q.options[q.answer-1]||{}).refs||[])[0];
+    if(!picked||!right||picked===right)return;
+    const k=picked+'>'+right; m[k]=(m[k]||0)+1;
+  });
+  return Object.keys(m).map(k=>{const p=k.split('>');
+    return {a:+p[0],b:+p[1],n:m[k]}}).sort((x,y)=>y.n-x.n);
+}
+
+/* ============================================================
+   5. 라우팅
+   ============================================================ */
+function go(h){location.hash=h}
+function qs(h){const o={},s=h.split('?')[1];
+  if(s)s.split('&').forEach(kv=>{const p=kv.split('=');o[p[0]]=decodeURIComponent(p[1]||'')});
+  return o}
+const VIEW={home:vHome,eras:vEras,era:vEra,con:vCon,search:vSearch,
+            quiz:vQuiz,play:vPlay,analysis:vAnalysis,ai:vAI,aiplay:vAIPlay,
+            settings:vSettings};
+const TITLE={home:'한국사 심화',eras:'개념 정리',era:'개념 정리',con:'개념',
+             search:'개념 검색',quiz:'문제 풀이',play:'문제 풀이',
+             analysis:'오답 분석',ai:'AI 학습',aiplay:'AI 문제',settings:'설정'};
+const NEED_Q={quiz:1,play:1,analysis:1,ai:1,aiplay:1,home:1,con:1,era:1};
+function route(){
+  const h=location.hash||'#/home', p=h.split('?')[0].split('/')[1]||'home', a=qs(h);
+  const fn=VIEW[p]||vHome;
+  drawNav(p);
+  document.getElementById('hTitle').textContent=TITLE[p]||'한국사 심화';
+  window.scrollTo(0,0);
+  if(NEED_Q[p]&&!D.quizOn){app().innerHTML='<div class="empty">불러오는 중…</div>';
+    needQuiz().then(()=>{if((location.hash||'#/home').split('?')[0].split('/')[1]===p)fn(a)})
+      .catch(bootFail);
+    return;
+  }
+  fn(a);
+}
+const NAV=[['home','◎','홈'],['eras','▤','개념'],['quiz','✎','문제'],
+           ['analysis','◈','오답분석'],['ai','✦','AI']];
+const ALIAS={era:'eras',con:'eras',search:'eras',play:'quiz',aiplay:'ai'};
+function drawNav(p){
+  const t=ALIAS[p]||p;
+  document.getElementById('navIn').innerHTML=NAV.map(x=>
+    '<a href="#/'+x[0]+'" data-tab="'+x[0]+'"><i>'+x[1]+'</i>'+x[2]+'</a>').join('');
+  document.querySelectorAll('nav a').forEach(a=>
+    a.classList.toggle('on',a.dataset.tab===t));
+}
+
+/* ============================================================
+   6. 홈
+   ============================================================ */
+function vHome(){
+  const st=stat(), wk=weakList(3).slice(0,6);
+  const unsolved=D.quiz.filter(q=>!S.answers[q.id]);
+  let h='';
+  h+='<div class="grid g4" style="margin-bottom:14px">'+
+     kpi(st.n+'<small style="font-size:13px;color:var(--tx3)">/'+D.quiz.length+'</small>','푼 문제')+
+     kpi(st.rate+'%','정답률')+
+     kpi(st.read+'<small style="font-size:13px;color:var(--tx3)">/'+D.con.length+'</small>','학습 완료')+
+     kpi(weakList(3).length,'취약 개념')+'</div>';
+
+  h+='<div class="card"><div class="row"><div class="sp b">이어서 풀기</div>'+
+     '<span class="dim xs">안 푼 문제 '+unsolved.length+'</span></div>'+
+     '<div class="grid g2 mt">'+
+     '<button class="btn pri" onclick="go(\'#/play?mode=unsolved\')">안 푼 문제</button>'+
+     '<button class="btn" onclick="go(\'#/play?mode=random\')">랜덤 20문항</button>'+
+     '</div>'+
+     '<div class="grid g2" style="margin-top:10px">'+
+     '<button class="btn" onclick="go(\'#/play?mode=wrong\')">틀린 문제만</button>'+
+     '<button class="btn" onclick="go(\'#/play?mode=weak\')">취약 개념 집중</button>'+
+     '</div></div>';
+
+  h+='<div class="h2">시대별 진행</div>';
+  D.idx.eras.forEach(e=>{
+    const s=eraStat(e.no);
+    h+='<div class="card tap" onclick="go(\'#/era?e='+e.no+'\')">'+
+       '<div class="row"><div class="sp"><span class="b">'+esc(e.name)+'</span> '+
+       '<span class="dim xs">'+esc(e.years||'')+'</span></div>'+
+       '<span class="xs mut">'+s.read+'/'+s.con+' 개념 · '+s.solved+'/'+s.q+' 문제</span></div>'+
+       '<div class="bar mt"><i style="width:'+pct(s.read,s.con)+'%"></i></div></div>';
+  });
+
+  if(wk.length){
+    h+='<div class="h2">지금 약한 개념</div>';
+    h+='<div class="card">'+wk.map(n=>{const c=D.conBy[n];
+      return '<div class="row" style="padding:5px 0;cursor:pointer" onclick="go(\'#/con?no='+n+'\')">'+
+        '<span class="sp">'+esc(c.title)+'</span>'+
+        '<span class="tag no">'+S.weak[n]+'점</span></div>'}).join('')+
+      '<button class="btn wide mt" onclick="go(\'#/play?mode=weak\')">이 개념들로 풀기</button></div>';
+  }
+  const seed=D.idx.lectures.filter(l=>l.src!=='lecture').length;
+  if(seed) h+='<div class="card xs dim mb0">강의 자막이 아직 반영되지 않은 차시가 '+seed+
+    '개 있습니다. 해당 차시의 개념은 한국사능력검정시험 심화 표준 출제범위를 근거로 직접 작성한 것으로, '+
+    '목록에서 <span class="tag seed">직접 작성</span> 으로 표시됩니다.</div>';
+  app().innerHTML=h;
+}
+function kpi(v,l){return '<div class="kpi"><b>'+v+'</b><span>'+l+'</span></div>'}
+
+/* ============================================================
+   7. 개념 — 시대 → 차시 → 항목
+   ============================================================ */
+function vEras(){
+  let h='<div class="card tap" onclick="go(\'#/search\')"><div class="row">'+
+    '<span class="sp mut">개념 · 키워드 검색</span><span class="dim">🔍</span></div></div>';
+  D.idx.eras.forEach(e=>{
+    const s=eraStat(e.no);
+    h+='<div class="card tap" onclick="go(\'#/era?e='+e.no+'\')">'+
+      '<div class="row"><div class="sp"><div class="b">'+esc(e.name)+'</div>'+
+      '<div class="dim xs">'+esc(e.lec||'')+' · '+esc(e.years||'')+'</div></div>'+
+      (s.con?'<span class="tag">'+s.con+'개념</span>'
+            :'<span class="tag seed">수집 대기</span>')+'</div>'+
+      (s.con?'<div class="bar mt"><i style="width:'+pct(s.read,s.con)+'%"></i></div>':'')+'</div>';
+  });
+  app().innerHTML=h;
+}
+function vEra(a){
+  const e=+a.e, era=D.eraBy[e];
+  if(!era)return go('#/eras');
+  const ty=a.ty||'', im=a.im||'';
+  let items=D.con.filter(c=>c.era===e);
+  if(ty)items=items.filter(c=>c.type===ty);
+  if(im)items=items.filter(c=>c.imp===+im);
+
+  let h='<div class="card"><div class="b">'+esc(era.name)+'</div>'+
+    '<div class="dim xs">'+esc(era.lec||'')+' · '+esc(era.years||'')+'</div></div>';
+
+  const base='#/era?e='+e;
+  h+='<div class="scroller" style="margin-bottom:8px">'+
+    chip('전체',!ty&&!im,base)+
+    [3,2,1].map(i=>chip(IMP[i],im==i,base+'&im='+i+(ty?'&ty='+encodeURIComponent(ty):''))).join('')+
+    TYPES.map(t=>chip(t,ty===t,base+'&ty='+encodeURIComponent(t)+(im?'&im='+im:''))).join('')+
+    '</div>';
+
+  const lecs=D.idx.lectures.filter(l=>l.era===e);
+  lecs.forEach(l=>{
+    const cs=items.filter(c=>c.lec===l.no);
+    if(!cs.length)return;
+    h+='<div class="h2">'+l.no+'강 · '+esc(l.title)+
+       (l.src!=='lecture'?' <span class="tag seed">직접 작성</span>':'')+
+       (l.vid?' <a class="xs dim" style="margin-left:auto" target="_blank" rel="noopener"'+
+        ' href="https://www.youtube.com/watch?v='+esc(l.vid)+'">강의 ↗</a>':'')+'</div>';
+    h+='<div class="card" style="padding:4px 14px">'+cs.map(c=>conRow(c)).join('')+'</div>';
+  });
+  if(!items.length)h+='<div class="empty">'+
+    (D.con.some(c=>c.era===e)?'조건에 맞는 개념이 없습니다.'
+     :'이 시대는 아직 강의 자막을 수집하지 않아 비어 있습니다.<br>'+
+       '<span class="xs">build/README.md의 절차대로 수집한 뒤 data/concepts-'+e+'.json에 채웁니다.</span>')+
+    '</div>';
+  app().innerHTML=h;
+}
+function chip(t,on,href){return '<a class="chip'+(on?' on':'')+'" href="'+href+'">'+esc(t)+'</a>'}
+function conRow(c,q){
+  return '<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer"'+
+    ' onclick="go(\'#/con?no='+c.no+'\')">'+
+    '<span class="sp">'+(S.read[c.no]?'<span style="color:var(--ok)">✓ </span>':'')+
+      hl(c.title,q)+
+      (c.yr?' <span class="dim xs">'+esc(c.yr)+'</span>':'')+'</span>'+
+    impTag(c.imp)+'</div>';
+}
+function vCon(a){
+  const no=+a.no, c=D.conBy[no];
+  if(!c)return go('#/eras');
+  const lec=D.lecBy[c.lec]||{}, era=D.eraBy[c.era]||{};
+  const rel=qOfCon(no);
+  let h='<div class="card">'+
+    '<div class="row wrap" style="gap:6px;margin-bottom:6px">'+
+      '<span class="tag">'+esc(era.name||'')+'</span>'+
+      '<span class="tag">'+c.lec+'강</span>'+
+      '<span class="tag">'+esc(c.type)+'</span>'+impTag(c.imp)+
+      (S.weak[no]?'<span class="tag no">취약 '+S.weak[no]+'점</span>':'')+'</div>'+
+    '<h3>'+esc(c.title)+'</h3>'+
+    (c.yr?'<div class="dim sm">'+esc(c.yr)+'</div>':'')+
+    '<div class="mt">'+bodyHtml(c.body)+'</div>'+
+    (c.keys&&c.keys.length?'<div class="chips mt">'+c.keys.map(k=>
+      '<span class="tag">'+esc(k)+'</span>').join('')+'</div>':'')+
+    '</div>';
+
+  h+='<div class="card"><label class="ck"><input type="checkbox" '+
+    (S.read[no]?'checked':'')+' onchange="toggleRead('+no+',this.checked)">'+
+    '학습 완료로 표시</label>'+
+    '<textarea class="mt" placeholder="이 개념에 대한 메모" oninput="conNote('+no+',this.value)">'+
+    esc(S.conNotes[no]||'')+'</textarea></div>';
+
+  if(rel.length){
+    h+='<div class="h2">관련 문항 '+rel.length+'</div><div class="card" style="padding:4px 14px">'+
+      rel.map(q=>{const a2=S.answers[q.id];
+        return '<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer"'+
+        ' onclick="go(\'#/play?mode=con&no='+no+'&start='+q.id+'\')">'+
+        '<span class="sp sm">'+esc((q.stem[0]||{}).text||q.id)+'</span>'+
+        (a2?'<span class="tag '+(a2.ok?'ok':'no')+'">'+(a2.ok?'정답':'오답')+'</span>':
+            '<span class="tag">미풀이</span>')+'</div>'}).join('')+
+      '<button class="btn wide mt" onclick="go(\'#/play?mode=con&no='+no+'\')">이 개념 문제 풀기</button></div>';
+  }
+  const nb=D.con.filter(x=>x.lec===c.lec&&x.no!==no).slice(0,8);
+  if(nb.length){
+    h+='<div class="h2">같은 차시</div><div class="card" style="padding:4px 14px">'+
+      nb.map(x=>conRow(x)).join('')+'</div>';
+  }
+  app().innerHTML=h;
+}
+function toggleRead(no,on){if(on)S.read[no]=1;else delete S.read[no];save()}
+function conNote(no,v){if(v.trim())S.conNotes[no]=v;else delete S.conNotes[no];save()}
+
+function vSearch(){
+  app().innerHTML='<div class="card"><input type="search" id="sq" placeholder="개념 · 키워드 · 연도"'+
+    ' autocomplete="off"></div><div id="sr"></div>';
+  const box=document.getElementById('sq');
+  box.oninput=()=>{
+    const q=box.value.trim();
+    const r=document.getElementById('sr');
+    if(q.length<1){r.innerHTML='<div class="empty">검색어를 입력하세요.</div>';return}
+    const lq=q.toLowerCase();
+    const hit=D.con.filter(c=>
+      c.title.toLowerCase().indexOf(lq)>=0 ||
+      (c.keys||[]).some(k=>k.toLowerCase().indexOf(lq)>=0) ||
+      (c.yr||'').indexOf(q)>=0 ||
+      (c.body||[]).some(b=>JSON.stringify(b).toLowerCase().indexOf(lq)>=0)).slice(0,80);
+    r.innerHTML=hit.length
+      ? '<div class="h2">'+hit.length+'개'+(hit.length>=80?'+':'')+'</div>'+
+        '<div class="card" style="padding:4px 14px">'+hit.map(c=>conRow(c,q)).join('')+'</div>'
+      : '<div class="empty">일치하는 개념이 없습니다.</div>';
+  };
+  box.focus();
+}
+
+/* ============================================================
+   8. 문제 풀이
+   ============================================================ */
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){
+  const k=Math.floor(Math.random()*(i+1));[a[i],a[k]]=[a[k],a[i]]}return a}
+
+function vQuiz(){
+  let h='<div class="card"><div class="b">바로 풀기</div><div class="grid g2 mt">'+
+    '<button class="btn pri" onclick="go(\'#/play?mode=unsolved\')">안 푼 문제</button>'+
+    '<button class="btn" onclick="go(\'#/play?mode=random\')">랜덤 20문항</button>'+
+    '<button class="btn" onclick="go(\'#/play?mode=wrong\')">틀린 문제만</button>'+
+    '<button class="btn" onclick="go(\'#/play?mode=weak\')">취약 개념 집중</button>'+
+    '</div></div>';
+  h+='<div class="h2">시대별</div>';
+  D.idx.eras.forEach(e=>{
+    const s=eraStat(e.no);
+    h+='<div class="card tap" onclick="go(\'#/play?mode=era&e='+e.no+'\')">'+
+      '<div class="row"><div class="sp b">'+esc(e.name)+'</div>'+
+      '<span class="xs mut">'+s.solved+'/'+s.q+
+      (s.solved?' · 정답률 '+pct(s.ok,s.solved)+'%':'')+'</span></div>'+
+      '<div class="bar mt"><i style="width:'+pct(s.solved,s.q)+'%"></i></div></div>';
+  });
+  app().innerHTML=h;
+}
+
+let PP=null;
+function buildList(a){
+  const m=a.mode;
+  if(m==='era')  return {t:(D.eraBy[+a.e]||{}).name||'시대별', l:D.quiz.filter(q=>q.era===+a.e)};
+  if(m==='lec')  return {t:a.lec+'강', l:D.quiz.filter(q=>q.lec===+a.lec)};
+  if(m==='con')  return {t:(D.conBy[+a.no]||{}).title||'개념', l:qOfCon(+a.no)};
+  if(m==='wrong')return {t:'틀린 문제', l:D.quiz.filter(q=>S.answers[q.id]&&!S.answers[q.id].ok)};
+  if(m==='unsolved')return {t:'안 푼 문제', l:D.quiz.filter(q=>!S.answers[q.id])};
+  if(m==='random')  return {t:'랜덤 20문항', l:shuffle(D.quiz).slice(0,20)};
+  if(m==='unknown') return {t:'넘긴 문항', l:S.unknown.map(id=>D.qById[id]).filter(Boolean)};
+  if(m==='weak'){
+    const top=weakList(3).slice(0,12);
+    const set={}; top.forEach(n=>qOfCon(n).forEach(q=>set[q.id]=q));
+    const l=Object.keys(set).map(k=>set[k]).sort((x,y)=>{
+      const r=q=>S.answers[q.id]?(S.answers[q.id].ok?2:1):0;
+      return r(x)-r(y)});
+    return {t:'취약 개념 집중', l:l};
+  }
+  return {t:'전체', l:D.quiz};
+}
+function vPlay(a){
+  const b=buildList(a);
+  if(!b.l.length){
+    app().innerHTML='<div class="empty">'+
+      (a.mode==='wrong'?'아직 틀린 문제가 없습니다.':
+       a.mode==='weak'?'취약 개념이 아직 쌓이지 않았습니다.<br>문제를 좀 더 풀어 보세요.':
+       a.mode==='unsolved'?'모든 문제를 풀었습니다. 🎉':'문항이 없습니다.')+
+      '</div><button class="btn wide" onclick="go(\'#/quiz\')">문제 화면으로</button>';
+    return;
+  }
+  let i=0;
+  if(a.start){const k=b.l.findIndex(q=>q.id===a.start); if(k>=0)i=k}
+  else{const k=b.l.findIndex(q=>!S.answers[q.id]); if(k>=0)i=k}
+  PP={list:b.l,i:i,title:b.t,shown:{},ai:false};
+  drawQ();
+}
+function drawQ(){
+  const q=PP.list[PP.i], n=PP.list.length;
+  const done=PP.shown[q.id], rec=(PP.ai?S.ai.ans:S.answers)[q.id];
+  let h='<div class="pgs"><span class="xs dim">'+esc(PP.title)+'</span>'+
+    '<div class="bar"><i style="width:'+pct(PP.i+1,n)+'%"></i></div>'+
+    '<span class="xs dim">'+(PP.i+1)+'/'+n+'</span></div>';
+
+  h+='<div class="card">';
+  if(q.era&&D.eraBy[q.era])h+='<div class="row wrap" style="gap:6px;margin-bottom:8px">'+
+    '<span class="tag">'+esc(D.eraBy[q.era].name)+'</span>'+
+    (q.lec?'<span class="tag">'+q.lec+'강</span>':'')+
+    (PP.ai?'<span class="tag seed">AI 문항</span>':'')+'</div>';
+  h+=(q.stem||[]).map(block).join('');
+  h+='</div>';
+
+  h+='<div id="opts">'+(q.options||[]).map((o,k)=>optHtml(q,k+1,done,rec)).join('')+'</div>';
+
+  if(done||rec)h+=fbHtml(q,(rec||{}).sel);
+  else h+='<button class="btn wide" onclick="skipCur()">모르겠음 · 넘기기</button>';
+
+  h+='<div class="row mt">'+
+    '<button class="btn sm" onclick="mv(-1)" '+(PP.i?'':'disabled')+'>◀ 이전</button>'+
+    '<div class="sp"></div>'+
+    '<button class="btn sm" onclick="mv(1)" '+(PP.i<n-1?'':'disabled')+'>다음 ▶</button></div>';
+  if(PP.i===n-1&&(done||rec))h+='<button class="btn pri wide mt" onclick="result()">결과 보기</button>';
+  app().innerHTML=h;
+}
+function optHtml(q,no,done,rec){
+  const show=done||rec;
+  let cls='opt';
+  if(show){
+    if(no===q.answer)cls+=' ok';
+    else if(rec&&rec.sel===no)cls+=' no';
+    cls+=' dis';
+  }
+  const txt=typeof q.options[no-1]==='string'?q.options[no-1]:q.options[no-1].text;
+  return '<div class="'+cls+'"'+(show?'':' onclick="pick('+no+')"')+'>'+
+    '<span class="n">'+no+'</span><span class="t">'+esc(txt)+'</span></div>';
+}
+function fbHtml(q,sel){
+  const ok=sel===q.answer;
+  let h='<div class="fb">';
+  h+='<div class="row" style="margin-bottom:8px"><span class="tag '+(ok?'ok':'no')+'">'+
+     (sel==null?'넘김':ok?'정답':'오답')+'</span>'+
+     '<span class="sp sm mut">정답 '+q.answer+'번</span></div>';
+  if(q.why)h+='<p class="sm">'+esc(q.why)+'</p>';
+  /* 내가 고른 선택지가 어떤 개념인지 — 이 사이트의 핵심 피드백 */
+  if(!ok&&sel!=null&&!PP.ai){
+    const mine=((q.options[sel-1]||{}).refs||[])[0];
+    const right=((q.options[q.answer-1]||{}).refs||[])[0];
+    if(mine&&D.conBy[mine]&&mine!==right)
+      h+='<div class="note sm" style="margin-top:8px">'+
+        '내가 고른 '+sel+'번은 <b>'+esc(D.conBy[mine].title)+'</b> 의 내용입니다.</div>';
+  }
+  if(PP.ai&&q.misread&&sel!=null&&q.misread[sel-1])
+    h+='<div class="note sm" style="margin-top:8px">'+esc(q.misread[sel-1])+'</div>';
+  const refs=(q.refs||[]).filter(n=>D.conBy[n]);
+  if(refs.length)h+='<div class="chips mt">'+refs.map(n=>
+    '<a class="chip" href="#/con?no='+n+'">'+esc(D.conBy[n].title)+' ↗</a>').join('')+'</div>';
+  if(!PP.ai)h+='<textarea class="mt" placeholder="이 문항 메모" oninput="qNote(\''+q.id+
+    '\',this.value)">'+esc(S.notes[q.id]||'')+'</textarea>';
+  return h+'</div>';
+}
+function pick(no){
+  const q=PP.list[PP.i];
+  PP.shown[q.id]=1;
+  if(PP.ai){
+    S.ai.ans[q.id]={sel:no,ok:no===q.answer,t:Date.now()};save();
+  } else grade(q,no);
+  drawQ();
+}
+function skipCur(){const q=PP.list[PP.i];
+  if(!PP.ai)skipQ(q);
+  PP.shown[q.id]=1; drawQ(); }
+function mv(d){PP.i=Math.max(0,Math.min(PP.list.length-1,PP.i+d));drawQ()}
+function qNote(id,v){if(v.trim())S.notes[id]=v;else delete S.notes[id];save()}
+function result(){
+  const src=PP.ai?S.ai.ans:S.answers;
+  const done=PP.list.filter(q=>src[q.id]), ok=done.filter(q=>src[q.id].ok);
+  let h='<div class="card ctr"><div style="font-size:34px;font-weight:800">'+
+    pct(ok.length,done.length)+'%</div>'+
+    '<div class="mut sm">'+done.length+'문항 중 '+ok.length+'개 정답</div></div>';
+  const wrong=done.filter(q=>!src[q.id].ok);
+  if(wrong.length){
+    h+='<div class="h2">틀린 문항 '+wrong.length+'</div><div class="card" style="padding:4px 14px">'+
+      wrong.map(q=>{const i=PP.list.indexOf(q);
+      return '<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer"'+
+        ' onclick="PP.i='+i+';drawQ()"><span class="sp sm">'+
+        esc((q.stem[0]||{}).text||q.id)+'</span><span class="dim xs">'+(i+1)+'번</span></div>'
+      }).join('')+'</div>';
+  }
+  h+='<div class="grid g2 mt">'+
+    '<button class="btn" onclick="PP.i=0;drawQ()">처음부터 다시 보기</button>'+
+    '<button class="btn pri" onclick="go(\''+(PP.ai?'#/ai':'#/quiz')+'\')">문제 목록</button></div>';
+  if(!PP.ai&&wrong.length)h+='<button class="btn wide mt" onclick="go(\'#/analysis\')">오답 분석 보기</button>';
+  app().innerHTML=h;
+}
+
+/* ============================================================
+   9. 오답 분석
+   ============================================================ */
+function vAnalysis(){
+  const st=stat();
+  if(!st.n){app().innerHTML='<div class="empty">아직 푼 문제가 없습니다.<br>'+
+    '문제를 풀면 어떤 개념에서 헷갈렸는지 여기에 쌓입니다.</div>'+
+    '<button class="btn pri wide" onclick="go(\'#/quiz\')">문제 풀러 가기</button>';return}
+  let h='<div class="grid g3" style="margin-bottom:14px">'+
+    kpi(st.n,'푼 문제')+kpi(st.rate+'%','정답률')+kpi(st.n-st.ok,'틀린 문제')+'</div>';
+
+  const wk=weakList(1);
+  h+='<div class="h2">선택지로 본 오개념</div>';
+  if(wk.length){
+    h+='<div class="card" style="padding:4px 14px">'+wk.slice(0,20).map(n=>{
+      const c=D.conBy[n];
+      return '<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer"'+
+        ' onclick="go(\'#/con?no='+n+'\')">'+
+        '<div class="sp"><div class="sm">'+esc(c.title)+'</div>'+
+        '<div class="dim xs">'+esc((D.eraBy[c.era]||{}).name||'')+' · '+c.lec+'강</div></div>'+
+        '<span class="tag no">'+S.weak[n]+'</span></div>'}).join('')+
+      '<button class="btn wide mt" onclick="go(\'#/play?mode=weak\')">상위 개념으로 풀기</button></div>';
+  } else h+='<div class="card mut sm">아직 취약 개념이 없습니다.</div>';
+
+  const cf=confusions().slice(0,10);
+  if(cf.length){
+    h+='<div class="h2">헷갈린 짝</div><div class="card" style="padding:4px 14px">'+
+      cf.map(x=>'<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)">'+
+        '<span class="sp sm"><a href="#/con?no='+x.a+'">'+esc(D.conBy[x.a].title)+'</a>'+
+        ' <span class="dim">↔</span> <a href="#/con?no='+x.b+'">'+esc(D.conBy[x.b].title)+'</a></span>'+
+        '<span class="tag">'+x.n+'회</span></div>').join('')+
+      '</div><div class="xs dim" style="padding:0 2px">왼쪽을 골랐지만 정답은 오른쪽이었던 횟수입니다.</div>';
+  }
+
+  h+='<div class="h2">시대별 정답률</div><div class="card" style="padding:4px 14px">';
+  D.idx.eras.forEach(e=>{const s=eraStat(e.no);
+    h+='<div style="padding:9px 0;border-bottom:1px solid var(--line)">'+
+      '<div class="row"><span class="sp sm">'+esc(e.name)+'</span>'+
+      '<span class="xs dim">'+(s.solved?pct(s.ok,s.solved)+'% · ':'')+s.solved+'/'+s.q+'</span></div>'+
+      '<div class="bar" style="margin-top:5px"><i style="width:'+
+      (s.solved?pct(s.ok,s.solved):0)+'%;background:'+
+      (s.solved&&pct(s.ok,s.solved)<60?'var(--no)':'var(--ok)')+'"></i></div></div>'});
+  h+='</div>';
+
+  const un=S.unknown.filter(id=>D.qById[id]);
+  if(un.length)h+='<div class="h2">모르겠음으로 넘긴 문항 '+un.length+'</div>'+
+    '<div class="card"><button class="btn wide" onclick="go(\'#/play?mode=unknown\')">'+
+    '다시 풀기</button></div>';
+  app().innerHTML=h;
+}
+
+/* ============================================================
+   10. AI 왕복 — 프롬프트 빌더 하나 + 불러오기 하나
+   ------------------------------------------------------------
+   my-study는 화면마다 프롬프트 빌더를 따로 두어 9벌이 거의 같았다.
+   여기서는 공통 컨텍스트 블록을 공유하고 kind별 지시문만 바꾼다.
+   ============================================================ */
+function ctxBlock(){
+  const wk=weakList(2).slice(0,12).map(n=>'- '+D.conBy[n].title+
+    ' ('+(D.eraBy[D.conBy[n].era]||{}).name+', 취약점수 '+S.weak[n]+')');
+  const wrong=D.quiz.filter(q=>S.answers[q.id]&&!S.answers[q.id].ok).slice(-8).map(q=>{
+    const a=S.answers[q.id];
+    return '- ['+q.id+'] '+((q.stem[0]||{}).text||'').slice(0,70)+
+      ' / 내 답 '+a.sel+'번, 정답 '+q.answer+'번';
+  });
+  let s='';
+  s+='## 내 취약 개념\n'+(wk.length?wk.join('\n'):'(아직 기록 없음)')+'\n\n';
+  s+='## 최근에 틀린 문항\n'+(wrong.length?wrong.join('\n'):'(아직 기록 없음)')+'\n\n';
+  s+='## 이 사이트가 쓰는 개념 이름 (새로 지어내지 말고 이 이름을 그대로 쓸 것)\n';
+  s+=D.idx.eras.map(e=>'- '+e.name+': '+
+    D.con.filter(c=>c.era===e.no&&c.imp>=2).slice(0,25).map(c=>c.title).join(', ')).join('\n')+'\n\n';
+  return s;
+}
+const AI_KIND={
+  gen:{label:'문제 출제',
+    head:'한국사능력검정시험 심화 수준의 4지선다 문항 10개를 만들어 주세요.',
+    spec:'각 문항은 아래 JSON 배열 형식으로만 답하세요. 설명이나 코드펜스 없이 JSON만 출력합니다.\n\n'+
+      '```\n[{"q":"문제 지문","quote":"제시 사료(없으면 생략)",\n'+
+      '  "options":["①내용","②내용","③내용","④내용"],\n'+
+      '  "answer":2,"why":"해설","misread":["1번을 고른 사람의 착각",…4개],\n'+
+      '  "era":3,"lec":12,"topic":"개념 이름"}]\n```\n\n'+
+      '- 위 「내 취약 개념」을 우선 다루세요.\n'+
+      '- 오답 선택지는 **같은 시대의 다른 왕·다른 사건**으로 만들어, 실제로 헷갈리는 지점을 찌르세요.\n'+
+      '- `misread`에는 그 선택지를 고른 사람이 무엇과 혼동한 것인지 한 줄로 적으세요.\n'+
+      '- `topic`은 위 개념 이름 목록에 있는 이름을 그대로 쓰세요.\n'+
+      '- 연도·인명·사건명은 반드시 검증하고, 확실하지 않으면 그 문항을 빼세요.'},
+  summary:{label:'개념 요약',
+    head:'제 취약 개념들을 정리한 학습 노트를 만들어 주세요.',
+    spec:'아래 JSON 배열 형식으로만 답하세요.\n\n'+
+      '```\n[{"topic":"개념 이름","sum":"핵심 한 줄",\n'+
+      '  "compare":[{"a":"헷갈리는 것 A","b":"헷갈리는 것 B","d":"구분되는 지점"}],\n'+
+      '  "memorize":"암기법·두문자","my":"내 오답으로 볼 때 내가 놓친 지점"}]\n```\n\n'+
+      '- `topic`은 위 개념 이름 목록의 이름을 그대로 쓰세요.\n'+
+      '- `compare`가 이 노트의 핵심입니다. 한국사는 "무엇을 모르는가"보다 '+
+      '"무엇과 헷갈리는가"가 문제이므로, 시대·왕·기구·조약을 짝지어 구분점을 적으세요.'},
+  diag:{label:'취약점 진단',
+    head:'제 오답 기록을 보고 무엇이 문제인지 진단해 주세요.',
+    spec:'JSON이 아니라 사람이 읽을 글로 답하세요.\n\n'+
+      '- 오답이 특정 시대·특정 유형(인물/제도/사건/문화)에 몰려 있는지\n'+
+      '- 헷갈린 짝에서 드러나는 구조적 약점이 무엇인지\n'+
+      '- 다음 일주일에 무엇을 어떤 순서로 볼지, 구체적인 개념 이름으로'}
+};
+function aiPrompt(kind){
+  const k=AI_KIND[kind];
+  return '당신은 한국사능력검정시험 심화 대비를 돕는 선생님입니다.\n'+k.head+'\n\n'+
+    ctxBlock()+'## 요구 형식\n'+k.spec+'\n';
+}
+function aiCopy(kind){
+  const t=aiPrompt(kind);
+  const done=()=>toast('프롬프트를 복사했습니다');
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(done,()=>aiFallback(t));
+  else aiFallback(t);
+}
+function aiFallback(t){
+  const a=document.createElement('textarea');a.value=t;
+  a.style.cssText='position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(a);a.select();
+  try{document.execCommand('copy');toast('프롬프트를 복사했습니다')}
+  catch(e){toast('복사에 실패했습니다')}
+  document.body.removeChild(a);
+}
+function vAI(){
+  const nq=S.ai.qs.length, nn=Object.keys(S.ai.notes).length;
+  const ans=Object.keys(S.ai.ans).length;
+  let h='<div class="card"><div class="b">1. 프롬프트 복사</div>'+
+    '<p class="sm mut mt">정적 사이트라 API 키를 넣을 수 없어, Claude·ChatGPT와 '+
+    '<b>복사 → 붙여넣기 → 결과 JSON 올리기</b> 로 왕복합니다. '+
+    '내 취약 개념과 최근 오답이 프롬프트에 함께 담깁니다.</p>'+
+    '<div class="grid g3 mt">'+Object.keys(AI_KIND).map(k=>
+      '<button class="btn" onclick="aiCopy(\''+k+'\')">'+AI_KIND[k].label+'</button>').join('')+
+    '</div>'+
+    '<button class="btn sm wide mt" onclick="aiPeek()">프롬프트 미리 보기</button></div>';
+
+  h+='<div class="card"><div class="b">2. 결과 JSON 불러오기</div>'+
+    '<p class="sm mut mt">받은 <code>.json</code> 파일을 올리면 문항인지 노트인지 자동으로 알아봅니다. '+
+    'AI 문항의 풀이 기록은 기출 통계와 <b>분리해서</b> 저장하므로 정답률이 흐려지지 않습니다.</p>'+
+    '<input type="file" accept=".json,application/json" class="mt" onchange="aiImport(this)">'+
+    '</div>';
+
+  h+='<div class="grid g3" style="margin:14px 0">'+
+    kpi(nq,'AI 문항')+kpi(ans,'푼 AI 문항')+kpi(nn,'AI 노트')+'</div>';
+
+  if(S.ai.sets.length){
+    h+='<div class="h2">불러온 세트</div>';
+    S.ai.sets.forEach(s=>{
+      const qs=S.ai.qs.filter(q=>q.set===s.id);
+      const solved=qs.filter(q=>S.ai.ans[q.id]).length;
+      const ok=qs.filter(q=>S.ai.ans[q.id]&&S.ai.ans[q.id].ok).length;
+      h+='<div class="card"><div class="row"><div class="sp"><div class="b">'+esc(s.name)+'</div>'+
+        '<div class="dim xs">'+esc(s.kind)+' · '+qs.length+'문항 · '+esc(s.at)+'</div></div></div>'+
+        (solved?'<div class="xs mut mt">'+solved+'/'+qs.length+' 풀이 · 정답률 '+
+          pct(ok,solved)+'%</div>':'')+
+        '<div class="grid g2 mt">'+
+        '<button class="btn pri sm" onclick="go(\'#/aiplay?set='+s.id+'\')">'+
+          (solved?'이어풀기':'풀기')+'</button>'+
+        '<button class="btn sm" onclick="aiDelSet(\''+s.id+'\')">삭제</button></div></div>';
+    });
+  }
+  if(nn){
+    h+='<div class="h2">AI 개념 노트</div>';
+    Object.keys(S.ai.notes).forEach(t=>{
+      const n=S.ai.notes[t], c=D.con.find(x=>x.title===t);
+      h+='<div class="card"><div class="row"><div class="sp b">'+esc(t)+'</div>'+
+        (c?'<a class="chip" href="#/con?no='+c.no+'">개념 ↗</a>':'')+'</div>'+
+        (n.sum?'<p class="sm mt">'+esc(n.sum)+'</p>':'')+
+        (n.compare&&n.compare.length?'<div class="tblwrap mt"><table><tr><th>A</th><th>B</th>'+
+          '<th>구분되는 지점</th></tr>'+n.compare.map(x=>'<tr><td>'+esc(x.a)+'</td><td>'+
+          esc(x.b)+'</td><td>'+esc(x.d)+'</td></tr>').join('')+'</table></div>':'')+
+        (n.memorize?'<div class="note sm">외우기 — '+esc(n.memorize)+'</div>':'')+
+        (n.my?'<div class="quote sm">내가 놓친 지점 — '+esc(n.my)+'</div>':'')+
+        '<button class="btn sm mt" onclick="aiDelNote(\''+esc(t).replace(/'/g,"\\'")+
+        '\')">노트 삭제</button></div>';
+    });
+  }
+  if(!S.ai.sets.length&&!nn)
+    h+='<div class="empty">아직 불러온 것이 없습니다.<br>위 1 → 2 순서로 진행하세요.</div>';
+  app().innerHTML=h;
+}
+function aiPeek(){
+  app().innerHTML='<div class="card"><div class="b">프롬프트 미리 보기 (문제 출제)</div>'+
+    '<textarea class="mt" style="min-height:320px;font-size:12px" readonly>'+
+    esc(aiPrompt('gen'))+'</textarea>'+
+    '<button class="btn wide mt" onclick="go(\'#/ai\')">돌아가기</button></div>';
+}
+function aiImport(el){
+  const f=el.files&&el.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    let data;
+    try{data=JSON.parse(r.result)}catch(e){return toast('JSON을 읽지 못했습니다')}
+    const arr=Array.isArray(data)?data:(data.items||data.questions||data.notes||[]);
+    if(!Array.isArray(arr)||!arr.length)return toast('배열 형태의 JSON이 아닙니다');
+    const isQ=arr[0]&&arr[0].options&&arr[0].answer!=null;
+    const name=f.name.replace(/\.json$/i,'');
+    if(isQ)aiAddQs(arr,name); else aiAddNotes(arr);
+    el.value=''; route();
+  };
+  r.readAsText(f);
+}
+function aiAddQs(arr,name){
+  let nm=name,k=2; while(S.ai.sets.some(s=>s.name===nm))nm=name+' ('+(k++)+')';
+  const id='S'+Date.now().toString(36);
+  let n=0;
+  arr.forEach((x,i)=>{
+    if(!x.options||x.options.length<2||!x.answer)return;
+    const stem=[{type:'text',text:String(x.q||'')}];
+    if(x.quote)stem.push({type:'quote',lines:String(x.quote).split('\n')});
+    const con=x.topic?D.con.find(c=>c.title===x.topic):null;
+    S.ai.qs.push({id:id+'-'+i,set:id,era:+x.era||(con?con.era:0),lec:+x.lec||(con?con.lec:0),
+      stem:stem,options:x.options.map(t=>({text:String(t).replace(/^[①②③④⑤]\s*/,'')})),
+      answer:+x.answer,why:x.why||'',misread:x.misread||null,
+      refs:con?[con.no]:[]});
+    n++;
+  });
+  S.ai.sets.push({id:id,name:nm,kind:'AI 출제',n:n,at:new Date().toISOString().slice(0,10)});
+  save(); toast(n+'문항을 「'+nm+'」 세트로 불러왔습니다');
+}
+function aiAddNotes(arr){
+  let n=0;
+  arr.forEach(x=>{ if(!x.topic)return;
+    S.ai.notes[x.topic]={sum:x.sum||'',compare:x.compare||[],memorize:x.memorize||'',my:x.my||''};
+    n++; });
+  save(); toast(n+'개 노트를 불러왔습니다');
+}
+function aiDelSet(id){
+  if(!confirm('이 세트의 문항과 풀이 기록을 지웁니다.'))return;
+  S.ai.sets=S.ai.sets.filter(s=>s.id!==id);
+  S.ai.qs.filter(q=>q.set===id).forEach(q=>delete S.ai.ans[q.id]);
+  S.ai.qs=S.ai.qs.filter(q=>q.set!==id);
+  save(); route();
+}
+function aiDelNote(t){delete S.ai.notes[t];save();route()}
+function vAIPlay(a){
+  const l=S.ai.qs.filter(q=>q.set===a.set);
+  if(!l.length){toast('문항이 없습니다');return go('#/ai')}
+  let i=l.findIndex(q=>!S.ai.ans[q.id]); if(i<0)i=0;
+  PP={list:l,i:i,title:'AI 문항',shown:{},ai:true};
+  drawQ();
+}
+
+/* ============================================================
+   11. 설정 / 백업
+   ============================================================ */
+function vSettings(){
+  const st=stat();
+  app().innerHTML=
+    '<div class="card"><div class="b">학습 기록</div>'+
+    '<p class="sm mut mt">모든 기록은 이 브라우저의 <code>localStorage</code>(키 <code>'+KEY+
+    '</code>)에만 저장됩니다. 서버로 보내지 않습니다. '+
+    '기기를 옮기거나 초기화하기 전에 반드시 내보내세요.</p>'+
+    '<div class="grid g2 mt">'+
+    '<button class="btn" onclick="expData()">백업 내보내기</button>'+
+    '<button class="btn" onclick="document.getElementById(\'imp\').click()">불러오기</button>'+
+    '</div><input type="file" id="imp" accept=".json" hidden onchange="impData(this)">'+
+    '<div class="xs dim mt">현재 '+st.n+'문항 풀이 · 개념 '+st.read+'개 완료</div></div>'+
+
+    '<div class="card"><div class="b">초기화</div>'+
+    '<div class="grid mt" style="gap:8px">'+
+    '<button class="btn sm" onclick="rst(\'answers\')">문제 풀이 기록만 지우기</button>'+
+    '<button class="btn sm" onclick="rst(\'weak\')">취약 개념 점수만 지우기</button>'+
+    '<button class="btn sm" onclick="rst(\'read\')">학습 완료 표시만 지우기</button>'+
+    '<button class="btn sm" onclick="rst(\'all\')" style="color:var(--no)">전부 지우기</button>'+
+    '</div></div>'+
+
+    '<div class="card"><div class="b">이 사이트에 대하여</div>'+
+    '<p class="sm mut mt">한국사능력검정시험 심화 대비 학습 사이트입니다. '+
+    '강의 구성은 최태성 「한국사능력검정시험 심화」 재생목록의 차시를 따르고, '+
+    '개념·문항은 표준 출제범위의 역사적 사실을 근거로 작성했습니다. '+
+    '강의 자막을 옮겨 싣지 않습니다.</p>'+
+    '<a class="btn sm wide mt" target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list='+
+    esc((D.idx.meta||{}).list||'')+'">원본 재생목록 ↗</a>'+
+    '<div class="xs dim mt">개념 '+D.con.length+' · 문항 '+D.quiz.length+' · 차시 '+
+    D.idx.lectures.length+'</div></div>';
+}
+function expData(){
+  const b=new Blob([JSON.stringify(S)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);
+  a.download='한국사학습기록_'+new Date().toISOString().slice(0,10)+'.json';
+  a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  toast('백업 파일을 내려받았습니다');
+}
+function impData(el){
+  const f=el.files&&el.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(!d||typeof d!=='object')throw 0;
+      S=Object.assign(DEF(),d);
+      S.ai=Object.assign(DEF().ai,S.ai||{});
+      save(); toast('불러왔습니다'); route();
+    }catch(e){toast('백업 파일이 아닙니다')}
+    el.value='';
+  };
+  r.readAsText(f);
+}
+function rst(k){
+  const msg={answers:'문제 풀이 기록',weak:'취약 개념 점수',read:'학습 완료 표시',all:'모든 기록'};
+  if(!confirm(msg[k]+'을 지웁니다. 되돌릴 수 없습니다.'))return;
+  if(k==='all'){try{localStorage.removeItem(KEY)}catch(e){} S=load()}
+  else if(k==='answers'){S.answers={};S.unknown=[]}
+  else S[k]={};
+  save(); toast('지웠습니다'); route();
+}
+
+boot();
+</script>
+</body>
+</html>
