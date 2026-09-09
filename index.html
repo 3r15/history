@@ -475,6 +475,23 @@ function conRow(c,q){
       (c.yr?' <span class="dim xs">'+esc(c.yr)+'</span>':'')+'</span>'+
     impTag(c.imp)+'</div>';
 }
+/* 개념 상세의 앞뒤 이동. D.con 은 no 오름차순이고 번호 블록이 시대 순으로
+   겹치지 않으므로, 전역 인덱스가 곧 개념 화면의 읽기 순서다. */
+function conNav(no){
+  const i=D.con.findIndex(c=>c.no===no);
+  return {prev:i>0?D.con[i-1]:null, next:i>=0&&i<D.con.length-1?D.con[i+1]:null};
+}
+function navBtn(t,cur,label,right){
+  const side=right?'flex-end':'flex-start', ta=right?'right':'left';
+  const title=t
+    ? (t.era!==cur.era?'<b>'+esc((D.eraBy[t.era]||{}).name||'')+'</b> · ':'')+esc(t.title)
+    : '처음입니다';
+  return '<button class="btn"'+(t?' onclick="go(\'#/con?no='+t.no+'\')"':' disabled')+
+    ' style="flex-direction:column;align-items:'+side+';text-align:'+ta+
+    ';gap:3px;min-width:0;white-space:normal">'+
+    '<span class="xs b">'+label+'</span>'+
+    '<span class="xs dim" style="line-height:1.35">'+title+'</span></button>';
+}
 function vCon(a){
   const no=+a.no, c=D.conBy[no];
   if(!c)return go('#/eras');
@@ -514,6 +531,11 @@ function vCon(a){
     h+='<div class="h2">같은 차시</div><div class="card" style="padding:4px 14px">'+
       nb.map(x=>conRow(x)).join('')+'</div>';
   }
+
+  const nav=conNav(no);
+  h+='<div class="grid g2 mt">'+
+     navBtn(nav.prev,c,'◀ 이전',false)+
+     navBtn(nav.next,c,'다음 ▶',true)+'</div>';
   app().innerHTML=h;
 }
 function toggleRead(no,on){if(on)S.read[no]=1;else delete S.read[no];save()}
