@@ -1,337 +1,337 @@
 {
- "meta": {
-  "title": "한국사능력검정시험 심화",
-  "list": "PLE7ogCa1_I6suFmGQa5-Uj_ZF4H1KdMZw",
-  "note": "차시 구성은 재생목록(최태성 1TV [심화별개념3], 40강)의 실제 목차입니다. src가 'seed'인 차시는 강의 내용이 아직 반영되지 않았습니다.",
-  "n": {
-   "con": 24,
-   "quiz": 10
-  }
- },
- "eras": [
-  {
-   "no": 1,
-   "name": "선사 시대와 국가의 등장",
-   "lec": "1~3강",
-   "years": "70만 년 전 ~ 기원전 1세기"
+  "meta": {
+    "title": "한국사능력검정시험 심화",
+    "list": "PLE7ogCa1_I6suFmGQa5-Uj_ZF4H1KdMZw",
+    "note": "차시 구성은 재생목록(최태성 1TV [심화별개념3], 40강)의 실제 목차입니다. src가 'seed'인 차시는 강의 내용이 아직 반영되지 않았습니다.",
+    "n": {
+      "con": 385,
+      "quiz": 236
+    }
   },
-  {
-   "no": 2,
-   "name": "삼국과 남북국",
-   "lec": "4~9강",
-   "years": "기원전 1세기 ~ 926"
-  },
-  {
-   "no": 3,
-   "name": "고려",
-   "lec": "10~15강",
-   "years": "918 ~ 1392"
-  },
-  {
-   "no": 4,
-   "name": "조선",
-   "lec": "16~27강",
-   "years": "1392 ~ 1863"
-  },
-  {
-   "no": 5,
-   "name": "근대 (개항 ~ 국권 피탈)",
-   "lec": "28~33강",
-   "years": "1863 ~ 1910"
-  },
-  {
-   "no": 6,
-   "name": "일제 강점기",
-   "lec": "34~37강",
-   "years": "1910 ~ 1945"
-  },
-  {
-   "no": 7,
-   "name": "현대",
-   "lec": "38~40강",
-   "years": "1945 ~ 현재"
-  }
- ],
- "lectures": [
-  {
-   "no": 1,
-   "era": 1,
-   "title": "우리는 왜 역사를 공부하는가",
-   "vid": "1Sp3EuDlZgM",
-   "src": "seed"
-  },
-  {
-   "no": 2,
-   "era": 1,
-   "title": "선사시대",
-   "vid": "E87y5yVbASw",
-   "src": "seed"
-  },
-  {
-   "no": 3,
-   "era": 1,
-   "title": "여러 나라의 성장",
-   "vid": "0Ilxa8IAgc0",
-   "src": "seed"
-  },
-  {
-   "no": 4,
-   "era": 2,
-   "title": "고대(고구려, 가야)",
-   "vid": "YS5e7wd6uZk",
-   "src": "seed"
-  },
-  {
-   "no": 5,
-   "era": 2,
-   "title": "고대(백제, 신라)",
-   "vid": "Mdd2ifdnnwE",
-   "src": "seed"
-  },
-  {
-   "no": 6,
-   "era": 2,
-   "title": "고대(통일신라, 발해)",
-   "vid": "-9o975OBDZE",
-   "src": "seed"
-  },
-  {
-   "no": 7,
-   "era": 2,
-   "title": "고대(경제, 사회)",
-   "vid": "5puZIaKnNec",
-   "src": "seed"
-  },
-  {
-   "no": 8,
-   "era": 2,
-   "title": "고대(문화1)",
-   "vid": "K77-j2KwSKc",
-   "src": "seed"
-  },
-  {
-   "no": 9,
-   "era": 2,
-   "title": "고대(문화2)",
-   "vid": "KZYo5bIl7rQ",
-   "src": "seed"
-  },
-  {
-   "no": 10,
-   "era": 3,
-   "title": "고려(초기 정치)",
-   "vid": "8f69dr3sUu8",
-   "src": "seed"
-  },
-  {
-   "no": 11,
-   "era": 3,
-   "title": "고려(중기 정치~무신 정변)",
-   "vid": "KtZ4RGqAEyc",
-   "src": "seed"
-  },
-  {
-   "no": 12,
-   "era": 3,
-   "title": "고려(외교)",
-   "vid": "EcA0vKuyV20",
-   "src": "seed"
-  },
-  {
-   "no": 13,
-   "era": 3,
-   "title": "고려(경제, 사회)",
-   "vid": "KJwIkUlgO6U",
-   "src": "seed"
-  },
-  {
-   "no": 14,
-   "era": 3,
-   "title": "고려(문화1)",
-   "vid": "NB0tI5kl3vE",
-   "src": "seed"
-  },
-  {
-   "no": 15,
-   "era": 3,
-   "title": "고려(문화2)",
-   "vid": "DRTgvkwmkrc",
-   "src": "seed"
-  },
-  {
-   "no": 16,
-   "era": 4,
-   "title": "조선 전기(정치)",
-   "vid": "SE1PJWhsav4",
-   "src": "seed"
-  },
-  {
-   "no": 17,
-   "era": 4,
-   "title": "조선(조직)",
-   "vid": "NzYNAchzIo0",
-   "src": "seed"
-  },
-  {
-   "no": 18,
-   "era": 4,
-   "title": "조선 전기(외교)",
-   "vid": "tc1S6Lyq62M",
-   "src": "seed"
-  },
-  {
-   "no": 19,
-   "era": 4,
-   "title": "조선 전기(경제, 사회)",
-   "vid": "zmUK-xHXd4o",
-   "src": "seed"
-  },
-  {
-   "no": 20,
-   "era": 4,
-   "title": "조선 전기(문화1)",
-   "vid": "zGbiFxTI6ns",
-   "src": "seed"
-  },
-  {
-   "no": 21,
-   "era": 4,
-   "title": "조선 전기(문화2)",
-   "vid": "_5MDIC66yrs",
-   "src": "seed"
-  },
-  {
-   "no": 22,
-   "era": 4,
-   "title": "조선 후기(정치)",
-   "vid": "Ntfa3mrvGl4",
-   "src": "seed"
-  },
-  {
-   "no": 23,
-   "era": 4,
-   "title": "조선 후기(외교, 조직)",
-   "vid": "ebtjzC0_Oqs",
-   "src": "seed"
-  },
-  {
-   "no": 24,
-   "era": 4,
-   "title": "조선 후기(경제)",
-   "vid": "ClF49XkXxes",
-   "src": "seed"
-  },
-  {
-   "no": 25,
-   "era": 4,
-   "title": "조선 후기(사회)",
-   "vid": "EqVtuTEoErY",
-   "src": "seed"
-  },
-  {
-   "no": 26,
-   "era": 4,
-   "title": "조선 후기(문화1)",
-   "vid": "lq3y3tbLUWM",
-   "src": "seed"
-  },
-  {
-   "no": 27,
-   "era": 4,
-   "title": "조선 후기(문화2)",
-   "vid": "qWpLrj-W5Tk",
-   "src": "seed"
-  },
-  {
-   "no": 28,
-   "era": 5,
-   "title": "개항기(흥선 대원군)",
-   "vid": "npS7uXqlfYE",
-   "src": "seed"
-  },
-  {
-   "no": 29,
-   "era": 5,
-   "title": "개항기(개항~갑신정변)",
-   "vid": "qHSsqMv2Avg",
-   "src": "seed"
-  },
-  {
-   "no": 30,
-   "era": 5,
-   "title": "개항기(동학농민운동~대한 제국)",
-   "vid": "Zutt8KP26Ro",
-   "src": "seed"
-  },
-  {
-   "no": 31,
-   "era": 5,
-   "title": "개항기(국권 침탈과 저항)",
-   "vid": "5nS07XbRC4M",
-   "src": "seed"
-  },
-  {
-   "no": 32,
-   "era": 5,
-   "title": "개항기(경제)",
-   "vid": "WVN-IL7A2yY",
-   "src": "seed"
-  },
-  {
-   "no": 33,
-   "era": 5,
-   "title": "개항기(문화)",
-   "vid": "bX2ubJBXMrI",
-   "src": "seed"
-  },
-  {
-   "no": 34,
-   "era": 6,
-   "title": "일제 강점기(식민 통치)",
-   "vid": "qQX-Znw6CxU",
-   "src": "seed"
-  },
-  {
-   "no": 35,
-   "era": 6,
-   "title": "일제 강점기(1910년대 저항)",
-   "vid": "2xbJF6RrYt8",
-   "src": "seed"
-  },
-  {
-   "no": 36,
-   "era": 6,
-   "title": "일제 강점기(1920년대 저항)",
-   "vid": "gVf2aLgyHEc",
-   "src": "seed"
-  },
-  {
-   "no": 37,
-   "era": 6,
-   "title": "일제 강점기(1930년대 이후 저항)",
-   "vid": "rZF6Yasz9YE",
-   "src": "seed"
-  },
-  {
-   "no": 38,
-   "era": 7,
-   "title": "현대(광복~6·25 전쟁)",
-   "vid": "3H6BGj3B2YM",
-   "src": "seed"
-  },
-  {
-   "no": 39,
-   "era": 7,
-   "title": "현대(민주주의의 발전)",
-   "vid": "M1OFdEl_AVM",
-   "src": "seed"
-  },
-  {
-   "no": 40,
-   "era": 7,
-   "title": "현대(경제 발전과 통일 정책)",
-   "vid": "EubKeQQ_c1k",
-   "src": "seed"
-  }
- ]
+  "eras": [
+    {
+      "no": 1,
+      "name": "선사 시대와 국가의 등장",
+      "lec": "1~3강",
+      "years": "70만 년 전 ~ 기원전 1세기"
+    },
+    {
+      "no": 2,
+      "name": "삼국과 남북국",
+      "lec": "4~9강",
+      "years": "기원전 1세기 ~ 926"
+    },
+    {
+      "no": 3,
+      "name": "고려",
+      "lec": "10~15강",
+      "years": "918 ~ 1392"
+    },
+    {
+      "no": 4,
+      "name": "조선",
+      "lec": "16~27강",
+      "years": "1392 ~ 1863"
+    },
+    {
+      "no": 5,
+      "name": "근대 (개항 ~ 국권 피탈)",
+      "lec": "28~33강",
+      "years": "1863 ~ 1910"
+    },
+    {
+      "no": 6,
+      "name": "일제 강점기",
+      "lec": "34~37강",
+      "years": "1910 ~ 1945"
+    },
+    {
+      "no": 7,
+      "name": "현대",
+      "lec": "38~40강",
+      "years": "1945 ~ 현재"
+    }
+  ],
+  "lectures": [
+    {
+      "no": 1,
+      "era": 1,
+      "title": "우리는 왜 역사를 공부하는가",
+      "vid": "1Sp3EuDlZgM",
+      "src": "lecture"
+    },
+    {
+      "no": 2,
+      "era": 1,
+      "title": "선사시대",
+      "vid": "E87y5yVbASw",
+      "src": "lecture"
+    },
+    {
+      "no": 3,
+      "era": 1,
+      "title": "여러 나라의 성장",
+      "vid": "0Ilxa8IAgc0",
+      "src": "lecture"
+    },
+    {
+      "no": 4,
+      "era": 2,
+      "title": "고대(고구려, 가야)",
+      "vid": "YS5e7wd6uZk",
+      "src": "lecture"
+    },
+    {
+      "no": 5,
+      "era": 2,
+      "title": "고대(백제, 신라)",
+      "vid": "Mdd2ifdnnwE",
+      "src": "lecture"
+    },
+    {
+      "no": 6,
+      "era": 2,
+      "title": "고대(통일신라, 발해)",
+      "vid": "-9o975OBDZE",
+      "src": "lecture"
+    },
+    {
+      "no": 7,
+      "era": 2,
+      "title": "고대(경제, 사회)",
+      "vid": "5puZIaKnNec",
+      "src": "lecture"
+    },
+    {
+      "no": 8,
+      "era": 2,
+      "title": "고대(문화1)",
+      "vid": "K77-j2KwSKc",
+      "src": "lecture"
+    },
+    {
+      "no": 9,
+      "era": 2,
+      "title": "고대(문화2)",
+      "vid": "KZYo5bIl7rQ",
+      "src": "lecture"
+    },
+    {
+      "no": 10,
+      "era": 3,
+      "title": "고려(초기 정치)",
+      "vid": "8f69dr3sUu8",
+      "src": "lecture"
+    },
+    {
+      "no": 11,
+      "era": 3,
+      "title": "고려(중기 정치~무신 정변)",
+      "vid": "KtZ4RGqAEyc",
+      "src": "lecture"
+    },
+    {
+      "no": 12,
+      "era": 3,
+      "title": "고려(외교)",
+      "vid": "EcA0vKuyV20",
+      "src": "lecture"
+    },
+    {
+      "no": 13,
+      "era": 3,
+      "title": "고려(경제, 사회)",
+      "vid": "KJwIkUlgO6U",
+      "src": "lecture"
+    },
+    {
+      "no": 14,
+      "era": 3,
+      "title": "고려(문화1)",
+      "vid": "NB0tI5kl3vE",
+      "src": "lecture"
+    },
+    {
+      "no": 15,
+      "era": 3,
+      "title": "고려(문화2)",
+      "vid": "DRTgvkwmkrc",
+      "src": "lecture"
+    },
+    {
+      "no": 16,
+      "era": 4,
+      "title": "조선 전기(정치)",
+      "vid": "SE1PJWhsav4",
+      "src": "lecture"
+    },
+    {
+      "no": 17,
+      "era": 4,
+      "title": "조선(조직)",
+      "vid": "NzYNAchzIo0",
+      "src": "lecture"
+    },
+    {
+      "no": 18,
+      "era": 4,
+      "title": "조선 전기(외교)",
+      "vid": "tc1S6Lyq62M",
+      "src": "lecture"
+    },
+    {
+      "no": 19,
+      "era": 4,
+      "title": "조선 전기(경제, 사회)",
+      "vid": "zmUK-xHXd4o",
+      "src": "lecture"
+    },
+    {
+      "no": 20,
+      "era": 4,
+      "title": "조선 전기(문화1)",
+      "vid": "zGbiFxTI6ns",
+      "src": "lecture"
+    },
+    {
+      "no": 21,
+      "era": 4,
+      "title": "조선 전기(문화2)",
+      "vid": "_5MDIC66yrs",
+      "src": "lecture"
+    },
+    {
+      "no": 22,
+      "era": 4,
+      "title": "조선 후기(정치)",
+      "vid": "Ntfa3mrvGl4",
+      "src": "lecture"
+    },
+    {
+      "no": 23,
+      "era": 4,
+      "title": "조선 후기(외교, 조직)",
+      "vid": "ebtjzC0_Oqs",
+      "src": "lecture"
+    },
+    {
+      "no": 24,
+      "era": 4,
+      "title": "조선 후기(경제)",
+      "vid": "ClF49XkXxes",
+      "src": "lecture"
+    },
+    {
+      "no": 25,
+      "era": 4,
+      "title": "조선 후기(사회)",
+      "vid": "EqVtuTEoErY",
+      "src": "lecture"
+    },
+    {
+      "no": 26,
+      "era": 4,
+      "title": "조선 후기(문화1)",
+      "vid": "lq3y3tbLUWM",
+      "src": "lecture"
+    },
+    {
+      "no": 27,
+      "era": 4,
+      "title": "조선 후기(문화2)",
+      "vid": "qWpLrj-W5Tk",
+      "src": "lecture"
+    },
+    {
+      "no": 28,
+      "era": 5,
+      "title": "개항기(흥선 대원군)",
+      "vid": "npS7uXqlfYE",
+      "src": "lecture"
+    },
+    {
+      "no": 29,
+      "era": 5,
+      "title": "개항기(개항~갑신정변)",
+      "vid": "qHSsqMv2Avg",
+      "src": "lecture"
+    },
+    {
+      "no": 30,
+      "era": 5,
+      "title": "개항기(동학농민운동~대한 제국)",
+      "vid": "Zutt8KP26Ro",
+      "src": "lecture"
+    },
+    {
+      "no": 31,
+      "era": 5,
+      "title": "개항기(국권 침탈과 저항)",
+      "vid": "5nS07XbRC4M",
+      "src": "lecture"
+    },
+    {
+      "no": 32,
+      "era": 5,
+      "title": "개항기(경제)",
+      "vid": "WVN-IL7A2yY",
+      "src": "lecture"
+    },
+    {
+      "no": 33,
+      "era": 5,
+      "title": "개항기(문화)",
+      "vid": "bX2ubJBXMrI",
+      "src": "lecture"
+    },
+    {
+      "no": 34,
+      "era": 6,
+      "title": "일제 강점기(식민 통치)",
+      "vid": "qQX-Znw6CxU",
+      "src": "lecture"
+    },
+    {
+      "no": 35,
+      "era": 6,
+      "title": "일제 강점기(1910년대 저항)",
+      "vid": "2xbJF6RrYt8",
+      "src": "lecture"
+    },
+    {
+      "no": 36,
+      "era": 6,
+      "title": "일제 강점기(1920년대 저항)",
+      "vid": "gVf2aLgyHEc",
+      "src": "lecture"
+    },
+    {
+      "no": 37,
+      "era": 6,
+      "title": "일제 강점기(1930년대 이후 저항)",
+      "vid": "rZF6Yasz9YE",
+      "src": "lecture"
+    },
+    {
+      "no": 38,
+      "era": 7,
+      "title": "현대(광복~6·25 전쟁)",
+      "vid": "3H6BGj3B2YM",
+      "src": "lecture"
+    },
+    {
+      "no": 39,
+      "era": 7,
+      "title": "현대(민주주의의 발전)",
+      "vid": "M1OFdEl_AVM",
+      "src": "lecture"
+    },
+    {
+      "no": 40,
+      "era": 7,
+      "title": "현대(경제 발전과 통일 정책)",
+      "vid": "EubKeQQ_c1k",
+      "src": "lecture"
+    }
+  ]
 }

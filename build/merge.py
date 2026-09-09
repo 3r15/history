@@ -31,6 +31,18 @@ def warn(msg: str) -> None:
     warns.append(msg)
 
 
+def check_table(b: dict, name: str) -> None:
+    """표의 행 길이가 머리글과 다르면 빈 칸이 생기거나 내용이 잘려 나간다."""
+    if b.get("type") != "table":
+        return
+    w = len(b.get("head") or [])
+    if not w:
+        return
+    for i, row in enumerate(b.get("rows") or [], 1):
+        if len(row) != w:
+            err(f"{name}: 표 {i}행이 {len(row)}칸인데 머리글은 {w}칸입니다")
+
+
 def read(name: str):
     path = DATA / name
     if not path.exists():
@@ -93,6 +105,7 @@ def main() -> int:
             for b in body:
                 if b.get("type") not in BLOCKS:
                     err(f"{name}: 알 수 없는 블록 type — {b.get('type')}")
+                check_table(b, name)
 
     # ---------- 문항 ----------
     qids: set[str] = set()
@@ -122,6 +135,7 @@ def main() -> int:
             for b in q.get("stem") or []:
                 if b.get("type") not in BLOCKS:
                     err(f"{name}: 알 수 없는 stem 블록 — {b.get('type')}")
+                check_table(b, name)
 
             opts = q.get("options") or []
             if not 2 <= len(opts) <= 5:

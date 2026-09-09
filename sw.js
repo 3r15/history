@@ -1,5 +1,5 @@
 /* 데이터를 바꾸면 V 값을 올리세요. 안 그러면 옛 캐시가 남습니다. */
-const V = 'hist-v1';
+const V = 'hist-v2';
 const SHELL = ['./','index.html','manifest.webmanifest','icon.svg','data/index.json'];
 
 self.addEventListener('install', e => {
